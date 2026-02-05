@@ -57,11 +57,49 @@ export const registerUser = async (req, res) => {
 };
 
 // 🔑 Login User
+// export const loginUser = async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+
+//     const user = await User.findOne({ email });
+//     if (!user) {
+//       return res.status(401).json({
+//         success: false,
+//         message: "Invalid credentials",
+//       });
+//     }
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//       return res.status(401).json({
+//         success: false,
+//         message: "Invalid credentials",
+//       });
+//     }
+
+//     res.json({
+//       success: true,
+//       message: "Login successful",
+//       data: {
+//         _id: user._id,
+//         name: user.name,
+//         email: user.email,
+//         token: generateToken(user._id),
+//       },
+//     });
+//   } catch (error) {
+//     console.log("error in log",error)
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select("+password");
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -88,9 +126,10 @@ export const loginUser = async (req, res) => {
       },
     });
   } catch (error) {
+    console.log("LOGIN ERROR 👉", error);
     res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Server error",
     });
   }
 };

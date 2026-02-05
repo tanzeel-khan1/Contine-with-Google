@@ -1,21 +1,30 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 
-const AuthSucess = () => {
+const AuthSuccess = () => {
   const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const token = params.get("token");
+  const navigate = useNavigate();
 
-  // Save token to localStorage
   useEffect(() => {
-    if (token) {
-      localStorage.setItem("authToken", token);
-      console.log("Token saved to localStorage:", token);
-    }
-  }, [token]);
-  
+    const params = new URLSearchParams(location.search);
 
-  return <div>Login Successful! Token saved to localStorage ✅</div>;
+    const token = params.get("token");
+    const user = params.get("user");
+
+    if (token && user) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", user);
+
+      console.log("Auth saved ✅");
+
+      // redirect after login
+      navigate("/dashboard", { replace: true });
+    } else {
+      navigate("/login", { replace: true });
+    }
+  }, [location, navigate]);
+
+  return <div>Logging you in...</div>;
 };
 
-export default AuthSucess;
+export default AuthSuccess;
