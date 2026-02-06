@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useAuth from "../Hooks/Auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -11,20 +11,31 @@ const Loginn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await login(email, password);
-      toast.success("Login successful ");
-      navigate("/dashboard");
-    } catch (err) {
-      toast.error("Login failed ❌");
+  // 🔐 Agar already login hai → redirect
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard", { replace: true });
     }
-  };
+  }, [navigate]);
+
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const res = await login(email, password);
+
+  if (res?.success) {
+    toast.success("Login successful ");
+    navigate("/dashboard", { replace: true });
+  } else {
+    toast.error("Login failed ");
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-10 border border-purple-100 hover:shadow-2xl transition-transform transform hover:scale-105">
+
         {/* Heading */}
         <h2 className="text-3xl font-bold text-purple-700 text-center mb-1">
           Welcome Back 
@@ -41,6 +52,7 @@ const Loginn = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-5 py-3 bg-gray-100 text-gray-800 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-400 transition"
+            autoComplete="email"
             required
           />
 
@@ -50,13 +62,14 @@ const Loginn = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-5 py-3 bg-gray-100 text-gray-800 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-400 transition"
+            autoComplete="current-password"
             required
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 cursor-pointer btn-gradient text-white rounded-2xl font-semibold text-lg shadow-md hover:from-purple-700 hover:to-purple-800 transition disabled:opacity-60"
+            className="w-full py-3 cursor-pointer btn-gradient text-white rounded-2xl font-semibold text-lg shadow-md transition disabled:opacity-60"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
@@ -81,14 +94,15 @@ const Loginn = () => {
 
         {/* Register */}
         <p className="text-sm text-center mt-6 text-gray-500">
-          Create Your Account {" "}
+          Create Your Account{" "}
           <Link
             to="/register"
-            className="text-purple-600 font-semibold hover:text-purple-500  transition"
+            className="text-purple-600 font-semibold hover:text-purple-500 transition"
           >
             Register
           </Link>
         </p>
+
       </div>
     </div>
   );
