@@ -45,8 +45,8 @@ export default function Sidebar() {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6">
-          <h1 className="text-2xl font-bold text-purple-700">
-            MyApp 🚀
+          <h1 className="text-xl font-bold text-purple-700">
+            Bright Future School
           </h1>
 
           {/* Mobile Close */}
@@ -60,30 +60,29 @@ export default function Sidebar() {
 
         {/* Menu */}
         <nav className="p-4 space-y-2">
-          
-{menuItems.map((item) => {
-  const Icon = item.icon;
+          {menuItems.map((item) => {
+            const Icon = item.icon;
 
-  return (
-    <NavLink
-      key={item.name}
-      to={item.path}
-      end={item.path === "/dashboard"} // 🔥 IMPORTANT
-      onClick={() => setOpen(false)}
-      className={({ isActive }) =>
-        `flex items-center gap-3 px-4 py-3 rounded-lg transition
+            return (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                end={item.path === "/dashboard"} // 🔥 IMPORTANT
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 rounded-lg transition
         ${
           isActive
             ? "bg-purple-100 text-purple-700 shadow-md"
             : "hover:bg-purple-50"
         }`
-      }
-    >
-      <Icon size={20} />
-      <span className="font-medium">{item.name}</span>
-    </NavLink>
-  );
-})}
+                }
+              >
+                <Icon size={20} />
+                <span className="font-medium">{item.name}</span>
+              </NavLink>
+            );
+          })}
 
           <div className="pt-4 border-t">
             <Logout />

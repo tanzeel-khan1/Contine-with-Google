@@ -51,6 +51,7 @@ import AdminLayout from "./layouts/Layout";
 
 import Dashboard from "./pages/Dashboard";
 import User from "./pages/User";
+import Form from "./pages/Form";
 
 const App = () => {
   return (
@@ -65,7 +66,7 @@ const App = () => {
         <Route path="/login" element={<Loginn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/success" element={<AuthSuccess />} />
-
+         
         {/* Protected Admin Routes */}
         <Route
           path="/dashboard"
@@ -74,10 +75,13 @@ const App = () => {
               <AdminLayout />
             </ProtectedRoute>
           }
-        >
+        >         
+
           <Route index element={<Dashboard />} />
           <Route path="users" element={<User />} />
         </Route>
+                  <Route path="/form" element={<Form />} />
+
       </Routes>
     </>
   );
