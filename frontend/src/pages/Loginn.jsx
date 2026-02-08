@@ -19,26 +19,25 @@ const Loginn = () => {
     }
   }, [navigate]);
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const res = await login(email, password);
+    const res = await login(email, password);
 
-  if (res?.success) {
-    toast.success("Login successful ");
-    navigate("/dashboard", { replace: true });
-  } else {
-    toast.error("Login failed ");
-  }
-};
+    if (res?.success) {
+      toast.success("Login successful ");
+      navigate("/dashboard", { replace: true });
+    } else {
+      toast.error("Login failed ");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-10 border border-purple-100 hover:shadow-2xl transition-transform transform hover:scale-105">
-
         {/* Heading */}
         <h2 className="text-3xl font-bold text-purple-700 text-center mb-1">
-          Welcome Back 
+          Welcome Back
         </h2>
         <p className="text-sm text-gray-500 text-center mb-6">
           Login to your account
@@ -87,9 +86,7 @@ const Loginn = () => {
 
         {/* Error */}
         {error && (
-          <p className="text-red-500 text-sm text-center mt-4">
-            {error}
-          </p>
+          <p className="text-red-500 text-sm text-center mt-4">{error}</p>
         )}
 
         {/* Register */}
@@ -102,7 +99,6 @@ const Loginn = () => {
             Register
           </Link>
         </p>
-
       </div>
     </div>
   );

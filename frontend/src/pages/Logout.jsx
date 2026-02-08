@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { createPortal } from 'react-dom'
-import { LogOut } from 'lucide-react'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createPortal } from "react-dom";
+import { LogOut } from "lucide-react";
 
 const Logout = () => {
-  const [showModal, setShowModal] = useState(false)
-  const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
-  const modalRoot = document.getElementById('modal-root') || document.body
+  const modalRoot = document.getElementById("modal-root") || document.body;
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
-    navigate('/login')
-  }
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   return (
     <>
@@ -22,7 +22,7 @@ const Logout = () => {
         onClick={() => setShowModal(true)}
         className="mt-6 w-full flex items-center gap-2 px-4 py-3
                    rounded-lg text-purple-600 hover:bg-purple-50 
-                   transition-colors font-medium"
+                   transition-colors font-medium cursor-pointer"
       >
         <LogOut size={18} /> Logout
       </button>
@@ -44,7 +44,7 @@ const Logout = () => {
                 <button
                   onClick={() => setShowModal(false)}
                   className="flex-1 rounded-lg border border-purple-300
-                             px-4 py-2 text-purple-600 font-medium 
+                             px-4 py-2 text-purple-600 font-medium cursor-pointer
                              hover:bg-purple-50 transition"
                 >
                   Cancel
@@ -52,7 +52,7 @@ const Logout = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="flex-1 rounded-lg bg-purple-600 px-4 py-2
+                  className="flex-1 rounded-lg bg-purple-600 px-4 py-2 cursor-pointer
                              text-white font-medium hover:bg-purple-700 
                              transition"
                 >
@@ -61,10 +61,10 @@ const Logout = () => {
               </div>
             </div>
           </div>,
-          modalRoot
+          modalRoot,
         )}
     </>
-  )
-}
+  );
+};
 
-export default Logout
+export default Logout;
