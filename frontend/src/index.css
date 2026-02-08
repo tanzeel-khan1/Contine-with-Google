@@ -70,3 +70,6 @@ button:focus-visible {
 .btn-gradient {
   background: linear-gradient(to right, #7c3aed, #6b21a8);
 }
+.purple-gradient {
+  background: linear-gradient(to bottom right, #f3e8ff, #e9d5ff);
+}
