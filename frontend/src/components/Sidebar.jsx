@@ -9,9 +9,10 @@ const menuItems = [
     path: "/dashboard",
     icon: Home,
   },
-  {
-    name: "Users",
-    path: "/dashboard/users",
+ 
+   {
+    name: "Teacher's",
+    path: "/dashboard/teachers",
     icon: Users,
   },
 ];

@@ -66,11 +66,6 @@ const useAuth = () => {
 
   /* ================================
      🔐 LOGIN
-     Backend response:
-     {
-       success: true,
-       data: { _id, name, email, token }
-     }
   ================================ */
   const login = async (email, password) => {
     setLoading(true);
