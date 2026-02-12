@@ -9,7 +9,7 @@ import userRoutes from "./routes/userRoutes.js";
 import passportRoutes from "./routes/passportRoutes.js";
 import "./config/passport.js";
 import admissionRoutes from "./routes/admissionRoutes.js";
-import teacherRoutes from "./routes/teacherRoutes.js"
+import teacherRoutes from "./routes/teacherRoutes.js";
 
 connectDB();
 
@@ -25,7 +25,6 @@ app.use("/auth", passportRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/admission", admissionRoutes);
 app.use("/api/teachers", teacherRoutes);
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
