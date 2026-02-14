@@ -10,6 +10,8 @@ import passportRoutes from "./routes/passportRoutes.js";
 import "./config/passport.js";
 import admissionRoutes from "./routes/admissionRoutes.js";
 import teacherRoutes from "./routes/teacherRoutes.js";
+import enrollmentRoutes from "./routes/enrollmentRoutes.js";
+import courseRoutes from "./routes/courseRoutes.js";
 
 connectDB();
 
@@ -25,6 +27,8 @@ app.use("/auth", passportRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/admission", admissionRoutes);
 app.use("/api/teachers", teacherRoutes);
+app.use("/api/enrollments", enrollmentRoutes);
+app.use("/api/courses", courseRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
