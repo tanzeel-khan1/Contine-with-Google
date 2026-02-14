@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { LayoutDashboard, Users, X, Menu, Home } from "lucide-react";
+import { LayoutDashboard, Users, X, Menu, Home, CloudRain, Book } from "lucide-react";
 import Logout from "../pages/Logout";
 
 const menuItems = [
@@ -14,6 +14,11 @@ const menuItems = [
     name: "Teacher's",
     path: "/dashboard/teachers",
     icon: Users,
+  },
+  {
+    name: "Coures",
+    path: "/dashboard/courses",
+    icon: Book,
   },
 ];
 
