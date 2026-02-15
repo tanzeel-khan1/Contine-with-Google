@@ -47,7 +47,6 @@
 //                 <Route path="/admin" element={<AdminDashboard />} />
 //                 <Route path="/teacher" element={<TeacherDashboard />} />
 
-
 //       </Routes>
 //     </>
 //   );
@@ -73,6 +72,7 @@ import GetAllTeachers from "./pages/GetAllTeachers";
 import AdminDashboard from "./admin/AdminDashboard";
 import TeacherDashboard from "./teachers/TeacherDashboard";
 import Courses from "./pages/Courses";
+import GetMyBuyedCourses from "./pages/GetMyBuyedCourses";
 
 const App = () => {
   return (
@@ -92,7 +92,7 @@ const App = () => {
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute >
+            <ProtectedRoute>
               <AdminLayout />
             </ProtectedRoute>
           }
@@ -100,12 +100,8 @@ const App = () => {
           <Route index element={<Dashboard />} />
           <Route path="users" element={<User />} />
           <Route path="teachers" element={<GetAllTeachers />} />
-           <Route
-          path="courses"
-          element={
-              <Courses />
-          }
-        />
+          <Route path="courses" element={<Courses />} />
+                    <Route path="mycourses" element={<GetMyBuyedCourses />} />
 
         </Route>
 
@@ -127,7 +123,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-       
+
         {/* ================= USER ================= */}
         <Route
           path="/form"

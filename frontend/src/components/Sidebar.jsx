@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { LayoutDashboard, Users, X, Menu, Home, CloudRain, Book } from "lucide-react";
 import Logout from "../pages/Logout";
 
@@ -18,6 +18,11 @@ const menuItems = [
   {
     name: "Coures",
     path: "/dashboard/courses",
+    icon: Book,
+  },
+  {
+    name: "My Courses",
+    path: "/dashboard/mycourses",
     icon: Book,
   },
 ];
@@ -51,9 +56,9 @@ export default function Sidebar() {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6">
-          <h1 className="text-xl font-bold text-purple-700">
+          <Link to="/dashboard" className="text-xl font-bold text-purple-700  cursor-pointer hover:shadow-black">
             Bright Future School
-          </h1>
+          </Link>
 
           {/* Mobile Close */}
           <button

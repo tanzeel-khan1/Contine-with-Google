@@ -4,38 +4,6 @@ import mongoose from "mongoose";
 
 
 // ✅ Student Apply for Course
-// export const applyForCourse = async (req, res) => {
-//   try {
-//     const { courseId } = req.body;
-
-//     const course = await Course.findById(courseId);
-//     if (!course) {
-//       return res.status(404).json({ message: "Course not found" });
-//     }
-
-//     const alreadyApplied = await Enrollment.findOne({
-//       student: req.user._id,
-//       course: courseId,
-//     });
-
-//     if (alreadyApplied) {
-//       return res.status(400).json({ message: "Already applied" });
-//     }
-
-//     const enrollment = await Enrollment.create({
-//       student: req.user._id,
-//       course: courseId,
-//     });
-
-//     res.status(201).json({
-//       success: true,
-//       message: "Application submitted. Waiting for admin approval.",
-//       enrollment,
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
 export const applyForCourse = async (req, res) => {
   try {
     const { courseId } = req.body;
@@ -161,5 +129,28 @@ export const getCourseStudents = async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// ✅ Student - Get My Enrollments
+export const getMyEnrollments = async (req, res) => {
+  try {
+    const enrollments = await Enrollment.find({
+      student: req.user._id,
+    })
+      .populate("course", "title description")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: enrollments.length,
+      enrollments,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+      error: error.message,
+    });
   }
 };

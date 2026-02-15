@@ -17,7 +17,7 @@ const TeacherLoader = () => {
         transition={{ repeat: Infinity, duration: 1.5 }}
         className="mt-5 text-purple-600 font-medium tracking-wide"
       >
-        Loading teachers...
+        Loading ...
       </motion.p>
     </div>
   );

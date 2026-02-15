@@ -4,6 +4,7 @@ import {
   updateEnrollmentStatus,
   getAllEnrollments,
   getCourseStudents,
+   getMyEnrollments
 } from "../controllers/enrollmentController.js";
 
 import { protect, } from "../middleware/authMiddleware.js";
@@ -30,6 +31,8 @@ router.put(
   protect,
   updateEnrollmentStatus
 );
+router.get("/my", protect, getMyEnrollments);
+
 router.get("/:courseId/students", protect, getCourseStudents);
 
 export default router;
