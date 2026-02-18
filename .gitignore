@@ -2,8 +2,6 @@
 node_modules/
 
 # environment files
-.env
-.env.*
 !.env.example
 
 # logs
@@ -24,3 +22,4 @@ Thumbs.db
 # editor / IDE
 .vscode/
 .idea/
+config.bat

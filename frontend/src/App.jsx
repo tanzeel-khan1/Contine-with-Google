@@ -73,6 +73,7 @@ import AdminDashboard from "./admin/AdminDashboard";
 import TeacherDashboard from "./teachers/TeacherDashboard";
 import Courses from "./pages/Courses";
 import GetMyBuyedCourses from "./pages/GetMyBuyedCourses";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -101,7 +102,8 @@ const App = () => {
           <Route path="users" element={<User />} />
           <Route path="teachers" element={<GetAllTeachers />} />
           <Route path="courses" element={<Courses />} />
-                    <Route path="mycourses" element={<GetMyBuyedCourses />} />
+          <Route path="mycourses" element={<GetMyBuyedCourses />} />
+          <Route path="contact" element={<Contact />} />
 
         </Route>
 
