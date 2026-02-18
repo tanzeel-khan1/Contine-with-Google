@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { LayoutDashboard, Users, X, Menu, Home, CloudRain, Book } from "lucide-react";
+import {
+  LayoutDashboard,
+  Users,
+  X,
+  Menu,
+  Home,
+  CloudRain,
+  Book,
+  Contact,
+} from "lucide-react";
 import Logout from "../pages/Logout";
 
 const menuItems = [
@@ -9,8 +18,8 @@ const menuItems = [
     path: "/dashboard",
     icon: Home,
   },
- 
-   {
+
+  {
     name: "Teacher's",
     path: "/dashboard/teachers",
     icon: Users,
@@ -56,10 +65,13 @@ export default function Sidebar() {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6">
-          <Link to="/dashboard" className="text-xl font-bold text-purple-700  cursor-pointer hover:shadow-black">
-            Bright Future School
+          <Link
+            to="/dashboard"
+            className="text-xl font-bold text-purple-700  cursor-pointer hover:shadow-black"
+          >
+            {/* Bright Future School */}
+            <img src="logos.png" alt="" />
           </Link>
-
           {/* Mobile Close */}
           <button
             className="md:hidden text-purple-600 cursor-pointer"
