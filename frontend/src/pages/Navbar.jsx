@@ -6,10 +6,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="md:hidden fixed top-4 left-1/2 -translate-x-1/2 z-50 border rounded-md">
+      <div className="md:hidden fixed top-4 left-1/2 -translate-x-1/2 z-50  rounded-md">
         <button
           onClick={() => setOpen(!open)}
-          className={`text-purple-600 text-3xl transition-transform duration-300 cursor-pointer ${
+          className={`text-purple-600 text-3xl border-none transition-transform duration-300 cursor-pointer ${
             open ? "rotate-180" : ""
           }`}
         >
@@ -26,7 +26,7 @@ const Navbar = () => {
 
           <div className="flex gap-6">
             <Link
-              to="/about"
+              to="/dashboard/about"
               className="px-5 py-2 rounded-full text-white font-medium 
               btn-gradient
               hover:scale-105 transition-all duration-300"
@@ -58,7 +58,7 @@ const Navbar = () => {
 
         <div className="flex flex-col mt-5 items-center gap-6">
           <Link
-            to="/about"
+            to="/dashboard/about"
             onClick={() => setOpen(false)}
             className="px-5 py-2 rounded-full text-white font-medium 
            btn-gradient w-40 text-center"
@@ -67,7 +67,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/contact"
+            to="/dashboard/contact"
             onClick={() => setOpen(false)}
             className="px-5 py-2 rounded-full text-white font-medium 
            btn-gradient w-40 text-center"

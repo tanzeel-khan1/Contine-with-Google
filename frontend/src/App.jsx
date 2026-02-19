@@ -74,6 +74,7 @@ import TeacherDashboard from "./teachers/TeacherDashboard";
 import Courses from "./pages/Courses";
 import GetMyBuyedCourses from "./pages/GetMyBuyedCourses";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 const App = () => {
   return (
@@ -104,6 +105,8 @@ const App = () => {
           <Route path="courses" element={<Courses />} />
           <Route path="mycourses" element={<GetMyBuyedCourses />} />
           <Route path="contact" element={<Contact />} />
+                    <Route path="about" element={<About />} />
+
 
         </Route>
 
