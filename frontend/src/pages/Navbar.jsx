@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+
+  
   return (
     <>
       <div className="md:hidden fixed top-4 left-1/2 -translate-x-1/2 z-50  rounded-md">
@@ -31,6 +33,7 @@ const Navbar = () => {
               btn-gradient
               hover:scale-105 transition-all duration-300"
             >
+        
               About
             </Link>
 
