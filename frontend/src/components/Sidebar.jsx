@@ -41,7 +41,6 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Mobile Open Button */}
       <button
         className="md:hidden fixed top-4 left-4 z-50 bg-purple-600 cursor-pointer text-white p-2 rounded-lg"
         onClick={() => setOpen(true)}
@@ -49,7 +48,6 @@ export default function Sidebar() {
         <Menu size={22} />
       </button>
 
-      {/* Overlay */}
       {open && (
         <div
           className="fixed inset-0 bg-black/40 z-40 md:hidden"
@@ -57,22 +55,18 @@ export default function Sidebar() {
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-full w-64 bg-white text-purple-700
         transform ${open ? "translate-x-0" : "-translate-x-full"}
         md:translate-x-0 transition-transform duration-300 z-50 shadow-lg`}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-6">
           <Link
             to="/dashboard"
             className="text-xl font-bold text-purple-700  cursor-pointer hover:shadow-black"
           >
-            {/* Bright Future School */}
             <img src="logos.png" alt="" />
           </Link>
-          {/* Mobile Close */}
           <button
             className="md:hidden text-purple-600 cursor-pointer"
             onClick={() => setOpen(false)}
@@ -90,7 +84,7 @@ export default function Sidebar() {
               <NavLink
                 key={item.name}
                 to={item.path}
-                end={item.path === "/dashboard"} // 🔥 IMPORTANT
+                end={item.path === "/dashboard"} 
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg transition

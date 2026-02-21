@@ -66,6 +66,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+ 
 @import "tailwindcss";
 .btn-gradient {
   background: linear-gradient(to right, #7c3aed, #6b21a8);
