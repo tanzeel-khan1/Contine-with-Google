@@ -75,6 +75,7 @@ import Courses from "./pages/Courses";
 import GetMyBuyedCourses from "./pages/GetMyBuyedCourses";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Create from "./teachers/Create";
 
 const App = () => {
   return (
@@ -129,6 +130,14 @@ const App = () => {
           }
         />
 
+ <Route
+          path="/create"
+          element={
+            <ProtectedRoute allowedRoles={["teacher"]}>
+              <Create/>
+            </ProtectedRoute>
+          }
+        />
         {/* ================= USER ================= */}
         <Route
           path="/form"
