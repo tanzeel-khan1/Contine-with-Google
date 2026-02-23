@@ -7,6 +7,7 @@ const createAdmission = async (req, res) => {
       return res.status(400).json({ success: false, message: "userId is required in params" });
     }
 
+    
     const admissionData = { ...req.body, userId };
     const admission = await Admission.create(admissionData);
 
