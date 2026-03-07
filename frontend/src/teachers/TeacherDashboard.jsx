@@ -1,6 +1,7 @@
 import Logout from './Logout'
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Chat from "./Chat"
 
 const TeacherDashboard = () => {
   const navigate = useNavigate();
@@ -71,6 +72,7 @@ const TeacherDashboard = () => {
           </div>
         )}
       </nav>
+      <Chat/>
     </div>
   )
 }
