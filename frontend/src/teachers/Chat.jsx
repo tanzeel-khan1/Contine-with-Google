@@ -236,7 +236,6 @@ export default function CandlestickChart() {
                   );
                 })}
 
-                {/* X-axis */}
                 <line
                   x1="0"
                   y1={chartHeight}
@@ -270,7 +269,6 @@ export default function CandlestickChart() {
           </div>
         </div>
 
-        {/* Footer */}
         <p className="text-center text-slate-500 text-xs mt-8">
           Data updates automatically • Market hours 9:30 AM - 4:00 PM EST
         </p>

@@ -85,7 +85,6 @@ const useAttendance = () => {
     }
   };
 
-  // APPLY LEAVE
   const applyLeave = async (startDate, endDate, reason) => {
     if (!userId) {
       setError("User not logged in");

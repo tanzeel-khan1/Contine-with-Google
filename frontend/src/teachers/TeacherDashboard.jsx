@@ -11,10 +11,8 @@ const TeacherDashboard = () => {
     <div>
             <nav className="w-full  btn-gradient border-b border-amber-500/30 shadow-md">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          {/* Logo / Title */}
           <h1 className="text-xl font-bold text-white">My Dashboard</h1>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex gap-3">
             <button
               onClick={() => navigate("/create")}
