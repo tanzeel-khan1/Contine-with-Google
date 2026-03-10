@@ -4,7 +4,7 @@ import Attendance from "../models/Attendance.js";
 import User from "../models/User.js";
 
 cron.schedule(
-    "03 16 * * *",
+    "54 19 * * *",
   async () => {
     try {
     console.log("⏰ Cron running at 4: PM Karachi time");
