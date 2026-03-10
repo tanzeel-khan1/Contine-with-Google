@@ -24,12 +24,11 @@ const createAdmission = async (req, res) => {
   }
 };
 
-// ✅ Update Admission Status
-// PATCH /api/admission/:admissionId/status
+
 const updateAdmissionStatus = async (req, res) => {
   try {
     const { admissionId } = req.params;
-    const { status } = req.body; // expected: "Approved" or "Rejected"
+    const { status } = req.body; 
 
     if (!status || !["Pending", "Approved", "Rejected"].includes(status)) {
       return res.status(400).json({

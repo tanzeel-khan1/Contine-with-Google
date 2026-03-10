@@ -55,7 +55,6 @@ const useAttendance = () => {
     }
   };
 
-  // GET USER ATTENDANCE
   const getUserAttendance = async () => {
     if (!userId) {
       setError("User not logged in");
@@ -115,7 +114,6 @@ const useAttendance = () => {
     }
   };
 
-  // GET PENDING LEAVES (ADMIN)
   const getPendingLeaves = async () => {
     setLoading(true);
     setError(null);
