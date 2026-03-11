@@ -9,7 +9,6 @@ cron.schedule(
     try {
     console.log("⏰ Cron running at 4: PM Karachi time");
 
-      // Start & end of day in Karachi timezone
       const startOfDay = moment.tz("Asia/Karachi").startOf("day").toDate();
       const endOfDay = moment.tz("Asia/Karachi").endOf("day").toDate();
 

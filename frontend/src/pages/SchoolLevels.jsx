@@ -84,7 +84,7 @@ const SchoolLevels = () => {
               <motion.img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-not-allowed"
                 whileHover={{ scale: 1.15 }}
                 transition={{ duration: 0.6 }}
               />
