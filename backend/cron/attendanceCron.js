@@ -12,11 +12,9 @@ cron.schedule(
       const startOfDay = moment.tz("Asia/Karachi").startOf("day").toDate();
       const endOfDay = moment.tz("Asia/Karachi").endOf("day").toDate();
 
-      // ✅ Fetch all teachers
       const teachers = await User.find({ role: "teacher" }).select("_id");
 
       for (const teacher of teachers) {
-        // Check if attendance already exists for today
         const existingAttendance = await Attendance.findOne({
           userId: teacher._id,
           date: { $gte: startOfDay, $lte: endOfDay },

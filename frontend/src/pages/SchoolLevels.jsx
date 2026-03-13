@@ -32,7 +32,6 @@ const levels = [
   },
 ];
 
-// Container Animation (Stagger Effect)
 const containerVariants = {
   hidden: {},
   visible: {
@@ -42,7 +41,6 @@ const containerVariants = {
   },
 };
 
-// Individual Card Animation
 const cardVariants = {
   hidden: {
     opacity: 0,
@@ -75,7 +73,6 @@ const SchoolLevels = () => {
             whileHover={{ y: -10 }}
             className="flex flex-col items-center"
           >
-            {/* Image */}
             <motion.div
               className="w-64 h-64 rounded-full overflow-hidden shadow-xl"
               whileHover={{ scale: 1.05 }}
