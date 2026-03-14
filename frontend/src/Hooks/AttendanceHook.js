@@ -21,7 +21,7 @@ const useAttendance = () => {
 
   const user = getStoredUser();
   const userId = user?._id;
-  const token = user?.token; // ✅ user object ke andar se token liya
+  const token = user?.token; 
 
   const markAttendance = async () => {
     if (!userId) { setError("User not logged in"); return null; }
@@ -38,20 +38,7 @@ const useAttendance = () => {
     } finally { setLoading(false); }
   };
 
-  // const getUserAttendance = async () => {
-  //   if (!userId) { setError("User not logged in"); return null; }
-  //   setLoading(true); setError(null);
-  //   try {
-  //     const res = await axios.get(`${API_URL}/user/${userId}`,
-  //       { headers: { Authorization: `Bearer ${token}` } }
-  //     );
-  //     if (!res.data?.success) { setError(res.data?.message || "Failed to fetch attendance"); return null; }
-  //     setAttendance(res.data.attendance);
-  //     return res.data.attendance;
-  //   } catch (err) {
-  //     setError(err.response?.data?.message || "Server error"); return null;
-  //   } finally { setLoading(false); }
-  // };
+  
 const getUserAttendance = async () => {
   if (!userId) {
     setError("User not logged in");
@@ -68,7 +55,6 @@ const getUserAttendance = async () => {
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
-    // ✅ handle both response formats
     if (Array.isArray(res.data)) {
       setAttendance(res.data);
       return res.data;

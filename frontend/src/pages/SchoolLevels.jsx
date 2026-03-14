@@ -87,7 +87,6 @@ const SchoolLevels = () => {
               />
             </motion.div>
 
-            {/* Title */}
             <motion.h3
               className="mt-6 text-lg font-semibold text-gray-700"
               initial={{ opacity: 0 }}
@@ -97,7 +96,6 @@ const SchoolLevels = () => {
               {item.title}
             </motion.h3>
 
-            {/* Button */}
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

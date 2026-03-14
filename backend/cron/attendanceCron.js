@@ -4,10 +4,10 @@ import Attendance from "../models/Attendance.js";
 import User from "../models/User.js";
 
 cron.schedule(
-    "54 19 * * *",
+  "54 19 * * *",
   async () => {
     try {
-    console.log("⏰ Cron running at 4: PM Karachi time");
+      console.log("⏰ Cron running at 4: PM Karachi time");
 
       const startOfDay = moment.tz("Asia/Karachi").startOf("day").toDate();
       const endOfDay = moment.tz("Asia/Karachi").endOf("day").toDate();
@@ -20,17 +20,17 @@ cron.schedule(
           date: { $gte: startOfDay, $lte: endOfDay },
         });
 
-        // Agar present ya leave hai to skip
-        if (existingAttendance && ["present", "leave"].includes(existingAttendance.status)) {
+        if (
+          existingAttendance &&
+          ["present", "leave"].includes(existingAttendance.status)
+        ) {
           continue;
         }
 
-        // Agar already absent mark hai to skip
         if (existingAttendance && existingAttendance.status === "absent") {
           continue;
         }
 
-        // Agar attendance nahi hai, to absent mark karo
         await Attendance.create({
           userId: teacher._id,
           date: startOfDay,
@@ -38,12 +38,14 @@ cron.schedule(
         });
       }
 
-      console.log("✅ Teachers' absent attendance marked correctly (no duplicates)");
+      console.log(
+        "✅ Teachers' absent attendance marked correctly (no duplicates)",
+      );
     } catch (error) {
       console.error("❌ Cron error:", error);
     }
   },
   {
-    timezone: "Asia/Karachi", 
-  }
+    timezone: "Asia/Karachi",
+  },
 );

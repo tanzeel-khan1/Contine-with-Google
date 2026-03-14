@@ -43,7 +43,6 @@ const Dashboard = () => {
             </button>
           </motion.div>
 
-          {/* Features Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
               {
@@ -78,10 +77,8 @@ const Dashboard = () => {
             ))}
           </div>
 
-          {/* School Levels Section */}
           <SchoolLevels />
 
-          {/* Mission Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
