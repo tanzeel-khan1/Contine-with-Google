@@ -4,33 +4,20 @@ import {
   updateEnrollmentStatus,
   getAllEnrollments,
   getCourseStudents,
-   getMyEnrollments
+  getMyEnrollments,
 } from "../controllers/enrollmentController.js";
 
-import { protect, } from "../middleware/authMiddleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// 🎓 Only Student Can Apply
-router.post(
-  "/apply",
-  protect,
-  applyForCourse
-);
+router.post("/apply", protect, applyForCourse);
 
 // 👑 Only Admin Can View Applications
-router.get(
-  "/",
-  protect,
-  getAllEnrollments
-);
+router.get("/", protect, getAllEnrollments);
 
 // 👑 Only Admin Can Approve / Reject
-router.put(
-  "/:id",
-  protect,
-  updateEnrollmentStatus
-);
+router.put("/:id", protect, updateEnrollmentStatus);
 router.get("/my", protect, getMyEnrollments);
 
 router.get("/:courseId/students", protect, getCourseStudents);

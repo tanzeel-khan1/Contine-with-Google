@@ -13,7 +13,6 @@ const router = express.Router();
 // CREATE Teacher
 router.post("/", createTeacher);
 
-
 // GET all Teachers
 router.get("/all", getAllTeachers);
 

@@ -2,7 +2,6 @@ import Attendance from "../models/Attendance.js";
 import User from "../models/User.js";
 import moment from "moment-timezone";
 
-/* MARK ATTENDANCE */
 export const markAttendance = async (req, res) => {
   try {
     const { userId } = req.body;
@@ -52,7 +51,6 @@ export const markAttendance = async (req, res) => {
       }
     }
 
-    // If no attendance record exists yet
     const attendance = await Attendance.create({
       userId,
       date: today,
@@ -70,7 +68,6 @@ export const markAttendance = async (req, res) => {
   }
 };
 
-/* GET ALL ATTENDANCE (ADMIN) */
 export const getAllAttendance = async (req, res) => {
   try {
     const { date } = req.query;
@@ -95,7 +92,6 @@ export const getAllAttendance = async (req, res) => {
   }
 };
 
-/* APPLY LEAVE */
 export const applyLeave = async (req, res) => {
   try {
     const { userId, startDate, endDate, reason } = req.body;
@@ -152,7 +148,6 @@ export const applyLeave = async (req, res) => {
   }
 };
 
-/* GET USER ATTENDANCE */
 export const getUserAttendance = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -162,8 +157,6 @@ export const getUserAttendance = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
-
-/* DELETE ATTENDANCE BY DATE */
 export const deleteAttendanceById = async (req, res) => {
   try {
     const { attendanceId } = req.params;
@@ -190,7 +183,6 @@ export const deleteAttendanceById = async (req, res) => {
   }
 };
 
-/* PENDING LEAVES */
 export const getPendingLeaves = async (req, res) => {
   const leaves = await Attendance.find({
     status: "leave",
@@ -200,7 +192,6 @@ export const getPendingLeaves = async (req, res) => {
   res.json({ success: true, leaves });
 };
 
-/* LEAVE DECISION */
 
 export const leaveDecision = async (req, res) => {
   try {
@@ -252,7 +243,6 @@ export const leaveDecision = async (req, res) => {
   }
 };
 
-// controllers/attendanceController.js
 export const getUserAttendanceByUser = async (req, res) => {
   try {
     const { userId } = req.params;

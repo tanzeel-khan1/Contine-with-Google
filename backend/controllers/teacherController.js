@@ -1,32 +1,8 @@
 import Teacher from "../models/TeacherProfile.js";
 
-// CREATE Teacher
-// export const createTeacher = async (req, res) => {
-//   try {
-//     const teacher = await Teacher.create(req.body);
 
-//     res.status(201).json({
-//       success: true,
-//       message: "Teacher created successfully",
-//       data: teacher,
-//     });
-//     const existingTeacher = await Teacher.findOne({ name: req.body.name });
-// if (existingTeacher) {
-//   return res.status(400).json({
-//     message: "Is name ka teacher pehle se mojood hai"
-//   });
-// }
-
-//   } catch (error) {
-//     res.status(500).json({
-//       success: false,
-//       message: error.message,
-//     });
-//   }
-// };
 export const createTeacher = async (req, res) => {
   try {
-    // 1️⃣ Pehle check
     const existingTeacher = await Teacher.findOne({ name: req.body.name });
 
     if (existingTeacher) {
@@ -36,7 +12,6 @@ export const createTeacher = async (req, res) => {
       });
     }
 
-    // 2️⃣ Create new teacher
     const teacher = await Teacher.create(req.body);
 
     res.status(201).json({
@@ -53,7 +28,6 @@ export const createTeacher = async (req, res) => {
   }
 };
 
-// GET all Teachers
 export const getAllTeachers = async (req, res) => {
   try {
     const teachers = await Teacher.find();
@@ -70,7 +44,6 @@ export const getAllTeachers = async (req, res) => {
   }
 };
 
-// GET Teacher by ID
 export const getTeacherById = async (req, res) => {
   try {
     const teacher = await Teacher.findById(req.params.id);
@@ -93,7 +66,6 @@ export const getTeacherById = async (req, res) => {
   }
 };
 
-// UPDATE Teacher
 export const updateTeacher = async (req, res) => {
   try {
     const teacher = await Teacher.findByIdAndUpdate(req.params.id, req.body, {
@@ -121,7 +93,6 @@ export const updateTeacher = async (req, res) => {
   }
 };
 
-// DELETE Teacher
 export const deleteTeacher = async (req, res) => {
   try {
     const teacher = await Teacher.findByIdAndDelete(req.params.id);

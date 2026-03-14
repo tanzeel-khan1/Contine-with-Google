@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      sparse: true, 
+      sparse: true,
     },
 
     password: {
@@ -36,14 +36,13 @@ const userSchema = new mongoose.Schema(
       default: "local",
     },
 
-    // 🔥 ROLE FIELD
     role: {
       type: String,
       enum: ["admin", "student", "teacher", "user"],
-      default: "user", 
+      default: "user",
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.model("User", userSchema);

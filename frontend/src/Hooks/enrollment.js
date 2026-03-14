@@ -26,7 +26,7 @@ const useEnrollment = () => {
           headers: {
             Authorization: `Bearer ${getToken()}`,
           },
-        }
+        },
       );
 
       if (!res.data?.success) {
@@ -76,7 +76,7 @@ const useEnrollment = () => {
           headers: {
             Authorization: `Bearer ${getToken()}`,
           },
-        }
+        },
       );
 
       if (!res.data?.success) {
@@ -87,8 +87,8 @@ const useEnrollment = () => {
       // Update state
       setEnrollments((prev) =>
         prev.map((enrollment) =>
-          enrollment._id === id ? res.data.enrollment : enrollment
-        )
+          enrollment._id === id ? res.data.enrollment : enrollment,
+        ),
       );
 
       return res.data.enrollment;
@@ -99,30 +99,27 @@ const useEnrollment = () => {
       setLoading(false);
     }
   };
- const fetchMyEnrollments = async () => {
-  setLoading(true);
-  setError(null);
+  const fetchMyEnrollments = async () => {
+    setLoading(true);
+    setError(null);
 
-  try {
-    const res = await axios.get(`${API_URL}/my`, {
-      headers: {
-        Authorization: `Bearer ${getToken()}`,
-      },
-    });
+    try {
+      const res = await axios.get(`${API_URL}/my`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
 
-    if (res.data?.success) {
-      setEnrollments(res.data.enrollments); // ✅ yeh important hai
+      if (res.data?.success) {
+        setEnrollments(res.data.enrollments); // ✅ yeh important hai
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to fetch enrollments");
+    } finally {
+      setLoading(false);
     }
+  };
 
-  } catch (err) {
-    setError(err.response?.data?.message || "Failed to fetch enrollments");
-  } finally {
-    setLoading(false);
-  }
-};
-
-
-  // ✅ Get Students of Specific Course
   const getCourseStudents = async (courseId) => {
     setLoading(true);
     setError(null);
@@ -153,7 +150,7 @@ const useEnrollment = () => {
     fetchEnrollments,
     updateEnrollmentStatus,
     getCourseStudents,
-    fetchMyEnrollments
+    fetchMyEnrollments,
   };
 };
 

@@ -2,12 +2,10 @@ const Contact = require("../models/contactModel");
 const nodemailer = require("nodemailer");
 
 
-// ✅ 1️⃣ CREATE - Send Message
 exports.sendContactMessage = async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
-    // ✅ userId params se lo
     const { userId } = req.params;
 
     const newMessage = await Contact.create({
@@ -56,11 +54,10 @@ exports.sendContactMessage = async (req, res) => {
 
 
 
-// ✅ 2️⃣ GET ALL (Admin Use)
 exports.getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find()
-      .populate("userId", "name email") // user info bhi milega
+      .populate("userId", "name email") 
       .sort({ createdAt: -1 });
 
     res.status(200).json({
@@ -80,7 +77,6 @@ exports.getAllContacts = async (req, res) => {
 
 
 
-// ✅ 3️⃣ GET BY USER ID
 exports.getContactsByUserId = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -111,7 +107,6 @@ exports.getContactsByUserId = async (req, res) => {
 
 
 
-// ✅ 4️⃣ DELETE BY ID
 exports.deleteContact = async (req, res) => {
   try {
     const { id } = req.params;

@@ -10,7 +10,7 @@ import {
   getUserAttendanceByUser,
 } from "../controllers/attendanceController.js";
 
-import { protect, } from "../middleware/authMiddleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -21,11 +21,7 @@ router.post("/apply-leave", applyLeave);
 router.get("/pending-leaves", getPendingLeaves);
 router.get("/", getAllAttendance);
 
-router.delete(
-  "/delete/:attendanceId",
-  protect,
-  deleteAttendanceById,
-);
+router.delete("/delete/:attendanceId", protect, deleteAttendanceById);
 router.get("/user/:userId", getUserAttendanceByUser);
 router.put("/decision/:attendanceId", protect, leaveDecision);
 

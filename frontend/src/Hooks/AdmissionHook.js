@@ -69,7 +69,7 @@ const useAdmission = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
 
       if (!res.data?.success) {
@@ -78,9 +78,7 @@ const useAdmission = () => {
       }
 
       setAdmissions((prev) =>
-        prev.map((adm) =>
-          adm._id === admissionId ? res.data.data : adm
-        )
+        prev.map((adm) => (adm._id === admissionId ? res.data.data : adm)),
       );
 
       return res.data.data;

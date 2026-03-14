@@ -10,7 +10,6 @@ const useCourse = () => {
   const [error, setError] = useState(null);
   const [courses, setCourses] = useState([]);
 
-  // ✅ Get All Courses (Public)
   const fetchCourses = async () => {
     setLoading(true);
     setError(null);
@@ -31,7 +30,6 @@ const useCourse = () => {
     }
   };
 
-  // ✅ Get Single Course
   const getSingleCourse = async (id) => {
     setLoading(true);
     setError(null);
@@ -72,7 +70,6 @@ const useCourse = () => {
     }
   };
 
-  // ✅ Update Course (Admin)
   const updateCourse = async (id, formData) => {
     setLoading(true);
     setError(null);
@@ -100,7 +97,6 @@ const useCourse = () => {
     }
   };
 
-  // ✅ Delete Course (Admin)
   const deleteCourse = async (id) => {
     setLoading(true);
     setError(null);
@@ -125,7 +121,6 @@ const useCourse = () => {
     }
   };
 
-  // ✅ Get My Purchased/Enrolled Courses (User)
  const getMyBuyerCourses = useCallback(async (userId) => {
     setLoading(true);
     setError(null);
@@ -165,7 +160,7 @@ const useCourse = () => {
     createCourse,
     updateCourse,
     deleteCourse,
-    getMyBuyerCourses, // ✅ Added here
+    getMyBuyerCourses, 
   };
 };
 

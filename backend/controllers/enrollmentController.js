@@ -3,7 +3,6 @@ import Course from "../models/Course.js";
 import mongoose from "mongoose";
 
 
-// ✅ Student Apply for Course
 export const applyForCourse = async (req, res) => {
   try {
     const { courseId } = req.body;
@@ -73,7 +72,6 @@ export const applyForCourse = async (req, res) => {
 };
 
 
-// ✅ Admin Approve / Reject
 export const updateEnrollmentStatus = async (req, res) => {
   try {
     const { status } = req.body;
@@ -98,7 +96,6 @@ export const updateEnrollmentStatus = async (req, res) => {
 };
 
 
-// ✅ Admin Get All Applications
 export const getAllEnrollments = async (req, res) => {
   try {
     const enrollments = await Enrollment.find()
@@ -132,7 +129,6 @@ export const getCourseStudents = async (req, res) => {
   }
 };
 
-// ✅ Student - Get My Enrollments
 export const getMyEnrollments = async (req, res) => {
   try {
     const enrollments = await Enrollment.find({

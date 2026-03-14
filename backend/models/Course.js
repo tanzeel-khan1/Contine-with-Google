@@ -20,7 +20,7 @@ const courseSchema = new mongoose.Schema(
     },
 
     syllabus: {
-      type: [String], // List of topics/modules
+      type: [String], 
       required: true,
     },
 
@@ -28,9 +28,9 @@ const courseSchema = new mongoose.Schema(
       type: [
         {
           title: { type: String, required: true },
-          content: { type: String }, // Video URL, PDF link, text, etc.
-          resources: [String], // Additional files, links
-        }
+          content: { type: String }, 
+          resources: [String], 
+        },
       ],
       required: true,
     },
@@ -41,7 +41,7 @@ const courseSchema = new mongoose.Schema(
           question: { type: String, required: true },
           options: [String],
           answer: { type: String, required: true },
-        }
+        },
       ],
       default: [],
     },
@@ -52,7 +52,7 @@ const courseSchema = new mongoose.Schema(
     },
 
     image: {
-      type: String, // Cover image
+      type: String,
     },
 
     isActive: {
@@ -60,19 +60,22 @@ const courseSchema = new mongoose.Schema(
       default: true,
     },
 
-    // ✅ New field: track who bought the course
     studentsEnrolled: [
       {
-        studentId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+        studentId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
         name: { type: String },
         email: { type: String },
-        purchaseDate: { type: Date, default: Date.now }
-      }
-    ]
+        purchaseDate: { type: Date, default: Date.now },
+      },
+    ],
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Course = mongoose.model("Course", courseSchema);

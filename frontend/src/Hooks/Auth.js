@@ -21,14 +21,6 @@ const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  /* ================================
-     📝 REGISTER
-     Backend response expected:
-     {
-       success: true,
-       data: { _id, name, email, token }
-     }
-  ================================ */
   const register = async (name, email, password) => {
     setLoading(true);
     setError(null);

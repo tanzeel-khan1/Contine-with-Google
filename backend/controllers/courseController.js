@@ -4,7 +4,6 @@ import Enrollment from "../models/Enrollment.js";
 
 export const createCourse = async (req, res) => {
   try {
-    // Create course using request body
     const course = await Course.create(req.body);
 
     res.status(201).json({
@@ -13,7 +12,6 @@ export const createCourse = async (req, res) => {
       data: course,
     });
   } catch (error) {
-    // Handle validation errors separately
     if (error.name === "ValidationError") {
       const messages = Object.values(error.errors).map(val => val.message);
       return res.status(400).json({
@@ -23,7 +21,6 @@ export const createCourse = async (req, res) => {
       });
     }
 
-    // For other server errors
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -32,7 +29,6 @@ export const createCourse = async (req, res) => {
   }
 };
 
-// ✅ Get All Courses (Public)
 export const getAllCourses = async (req, res) => {
   try {
     const courses = await Course.find({ isActive: true });
@@ -48,7 +44,6 @@ export const getAllCourses = async (req, res) => {
 };
 
 
-// ✅ Get Single Course
 export const getSingleCourse = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -64,7 +59,6 @@ export const getSingleCourse = async (req, res) => {
 };
 
 
-// ✅ Update Course (Admin Only)
 export const updateCourse = async (req, res) => {
   try {
     const course = await Course.findByIdAndUpdate(
@@ -87,7 +81,6 @@ export const updateCourse = async (req, res) => {
 };
 
 
-// ✅ Delete Course (Admin Only)
 export const deleteCourse = async (req, res) => {
   try {
     const course = await Course.findByIdAndDelete(req.params.id);

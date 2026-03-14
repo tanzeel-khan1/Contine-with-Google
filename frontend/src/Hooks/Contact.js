@@ -1,9 +1,8 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/contact"; // Backend URL
+const API_URL = "http://localhost:5000/api/contact";
 
-// ✅ User info aur token localStorage se lo
 const getUser = () => {
   const user = localStorage.getItem("user");
   return user ? JSON.parse(user) : null;
@@ -19,7 +18,6 @@ const useContact = () => {
   const [error, setError] = useState(null);
   const [contacts, setContacts] = useState([]);
 
-  // ✅ Send Contact Message
   const sendContactMessage = async (formData) => {
     setLoading(true);
     setError(null);
@@ -49,7 +47,6 @@ const useContact = () => {
     }
   };
 
-  // ✅ Get Contacts by User ID
   const getContactsByUserId = useCallback(async () => {
     setLoading(true);
     setError(null);
