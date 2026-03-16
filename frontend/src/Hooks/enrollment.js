@@ -42,7 +42,6 @@ const useEnrollment = () => {
     }
   };
 
-  // ✅ Admin Get All Enrollments
   const fetchEnrollments = async () => {
     setLoading(true);
     setError(null);
@@ -62,7 +61,6 @@ const useEnrollment = () => {
     }
   };
 
-  // ✅ Admin Approve / Reject
   const updateEnrollmentStatus = async (id, status) => {
     setLoading(true);
     setError(null);

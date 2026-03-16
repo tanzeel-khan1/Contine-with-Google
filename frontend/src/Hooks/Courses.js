@@ -45,7 +45,6 @@ const useCourse = () => {
     }
   };
 
-  // ✅ Create Course (Admin)
   const createCourse = async (formData) => {
     setLoading(true);
     setError(null);
@@ -121,7 +120,7 @@ const useCourse = () => {
     }
   };
 
- const getMyBuyerCourses = useCallback(async (userId) => {
+  const getMyBuyerCourses = useCallback(async (userId) => {
     setLoading(true);
     setError(null);
 
@@ -160,7 +159,7 @@ const useCourse = () => {
     createCourse,
     updateCourse,
     deleteCourse,
-    getMyBuyerCourses, 
+    getMyBuyerCourses,
   };
 };
 

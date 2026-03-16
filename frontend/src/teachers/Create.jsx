@@ -22,7 +22,7 @@ const Create = () => {
   useEffect(() => {
     const init = async () => {
       await getUserAttendance();
-      setChecking(false); // 👈 attendance aa chuki
+      setChecking(false); 
     };
     init();
   }, []);

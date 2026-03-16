@@ -11,7 +11,7 @@ const TeacherDashboard = () => {
     <div>
             <nav className="w-full  btn-gradient border-b border-amber-500/30 shadow-md">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-white">My Dashboard</h1>
+          <h1 className="text-xl font-bold text-white md:ml-0 ml-4">My Dashboard</h1>
 
           <div className="hidden md:flex gap-3">
             <button
