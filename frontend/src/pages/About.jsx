@@ -31,10 +31,8 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Main Section */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
 
-          {/* Left Text */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -76,7 +74,6 @@ const About = () => {
 
         </div>
 
-        {/* Vision / Mission / Values */}
         <div className="grid md:grid-cols-3 gap-8">
 
           {[

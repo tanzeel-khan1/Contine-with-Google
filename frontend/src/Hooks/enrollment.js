@@ -13,7 +13,6 @@ const useEnrollment = () => {
   const [enrollments, setEnrollments] = useState([]);
   const [students, setStudents] = useState([]);
 
-  // ✅ Student Apply For Course
   const applyForCourse = async (courseId) => {
     setLoading(true);
     setError(null);
