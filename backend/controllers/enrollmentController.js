@@ -7,7 +7,6 @@ export const applyForCourse = async (req, res) => {
   try {
     const { courseId } = req.body;
 
-    // 🔹 Check courseId provided
     if (!courseId) {
       return res.status(400).json({
         success: false,
@@ -15,7 +14,6 @@ export const applyForCourse = async (req, res) => {
       });
     }
 
-    // 🔹 Validate Mongo ID
     if (!mongoose.Types.ObjectId.isValid(courseId)) {
       return res.status(400).json({
         success: false,

@@ -16,8 +16,8 @@ const Create = () => {
 
   const navigate = useNavigate();
 
-  const [buttonDisabled, setButtonDisabled] = useState(true); // 👈 START disabled
-  const [checking, setChecking] = useState(true); // 👈 NEW STATE
+  const [buttonDisabled, setButtonDisabled] = useState(true); 
+  const [checking, setChecking] = useState(true); 
 
   useEffect(() => {
     const init = async () => {

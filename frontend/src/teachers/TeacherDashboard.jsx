@@ -1,17 +1,19 @@
-import Logout from './Logout'
+import Logout from "./Logout";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Chat from "./Chat"
+import Chat from "./Chat";
 
 const TeacherDashboard = () => {
   const navigate = useNavigate();
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div>
-            <nav className="w-full  btn-gradient border-b border-amber-500/30 shadow-md">
+      <nav className="w-full  btn-gradient border-b border-amber-500/30 shadow-md">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-white md:ml-0 ml-4">My Dashboard</h1>
+          <h1 className="text-xl font-bold text-white md:ml-0 ml-4">
+            My Dashboard
+          </h1>
 
           <div className="hidden md:flex gap-3">
             <button
@@ -27,9 +29,7 @@ const TeacherDashboard = () => {
             >
               Leave
             </button>
-<Logout  className="w-full"/>
-
-           
+            <Logout className="w-full" />
           </div>
 
           {/* Mobile Hamburger */}
@@ -65,14 +65,13 @@ const TeacherDashboard = () => {
             >
               Leave
             </button>
-<Logout  className="w-full"/>
-           
+            <Logout className="w-full" />
           </div>
         )}
       </nav>
-      <Chat/>
+      <Chat />
     </div>
-  )
-}
+  );
+};
 
-export default TeacherDashboard
+export default TeacherDashboard;

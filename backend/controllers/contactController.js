@@ -15,7 +15,6 @@ exports.sendContactMessage = async (req, res) => {
       message,
     });
 
-    // Email Setup
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
