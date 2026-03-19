@@ -1,7 +1,6 @@
 import Course from "../models/Course.js";
 import Enrollment from "../models/Enrollment.js";
 
-
 export const createCourse = async (req, res) => {
   try {
     const course = await Course.create(req.body);
@@ -13,7 +12,7 @@ export const createCourse = async (req, res) => {
     });
   } catch (error) {
     if (error.name === "ValidationError") {
-      const messages = Object.values(error.errors).map(val => val.message);
+      const messages = Object.values(error.errors).map((val) => val.message);
       return res.status(400).json({
         success: false,
         message: "Validation Error",
@@ -43,7 +42,6 @@ export const getAllCourses = async (req, res) => {
   }
 };
 
-
 export const getSingleCourse = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -58,14 +56,11 @@ export const getSingleCourse = async (req, res) => {
   }
 };
 
-
 export const updateCourse = async (req, res) => {
   try {
-    const course = await Course.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
 
     if (!course) {
       return res.status(404).json({ message: "Course not found" });
@@ -79,7 +74,6 @@ export const updateCourse = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 export const deleteCourse = async (req, res) => {
   try {
@@ -124,7 +118,6 @@ export const getMyBuyerCourses = async (req, res) => {
       totalCourses: courses.length,
       courses,
     });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({

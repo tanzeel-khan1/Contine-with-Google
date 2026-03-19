@@ -12,11 +12,10 @@ import admissionRoutes from "./routes/admissionRoutes.js";
 import teacherRoutes from "./routes/teacherRoutes.js";
 import enrollmentRoutes from "./routes/enrollmentRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
-import ContactRoutes from "./routes/contactRoutes.js"
+import ContactRoutes from "./routes/contactRoutes.js";
 import attendanceRoutes from "./routes/attendanceRoutes.js";
 
 import "./cron/attendanceCron.js";
-
 
 connectDB();
 
@@ -36,7 +35,6 @@ app.use("/api/enrollments", enrollmentRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/contact", ContactRoutes);
 app.use("/api/attendance", attendanceRoutes);
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

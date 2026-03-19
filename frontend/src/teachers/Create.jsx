@@ -16,58 +16,56 @@ const Create = () => {
 
   const navigate = useNavigate();
 
-  const [buttonDisabled, setButtonDisabled] = useState(true); 
-  const [checking, setChecking] = useState(true); 
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
     const init = async () => {
       await getUserAttendance();
-      setChecking(false); 
+      setChecking(false);
     };
     init();
   }, []);
 
- useEffect(() => {
-  if (!attendance || attendance.length === 0) {
-    setButtonDisabled(false);
-    return;
-  }
+  useEffect(() => {
+    if (!attendance || attendance.length === 0) {
+      setButtonDisabled(false);
+      return;
+    }
 
-  const todayPK = new Date().toLocaleDateString("en-CA", {
-    timeZone: "Asia/Karachi",
-  });
-  // en-CA → YYYY-MM-DD
-
-  const alreadyMarked = attendance.some(att => {
-    const attDatePK = new Date(att.createdAt).toLocaleDateString("en-CA", {
+    const todayPK = new Date().toLocaleDateString("en-CA", {
       timeZone: "Asia/Karachi",
     });
 
-    return attDatePK === todayPK;
-  });
+    const alreadyMarked = attendance.some((att) => {
+      const attDatePK = new Date(att.createdAt).toLocaleDateString("en-CA", {
+        timeZone: "Asia/Karachi",
+      });
 
-  setButtonDisabled(alreadyMarked);
-}, [attendance]);
- const handleMarkAttendance = async () => {
-  if (buttonDisabled) return;
+      return attDatePK === todayPK;
+    });
 
-  const result = await markAttendance();
+    setButtonDisabled(alreadyMarked);
+  }, [attendance]);
+  const handleMarkAttendance = async () => {
+    if (buttonDisabled) return;
 
-  if (result) {
-    toast.success("Attendance marked successfully!");
+    const result = await markAttendance();
 
-    // 🔥 IMPORTANT: refetch attendance
-    await getUserAttendance();
+    if (result) {
+      toast.success("Attendance marked successfully!");
 
-    setButtonDisabled(true);
+      await getUserAttendance();
 
-    setTimeout(() => {
-      navigate("/teacher");
-    }, 1000);
-  } else if (error) {
-    toast.error(error);
-  }
-};
+      setButtonDisabled(true);
+
+      setTimeout(() => {
+        navigate("/teacher");
+      }, 1000);
+    } else if (error) {
+      toast.error(error);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -82,10 +80,10 @@ const Create = () => {
           {checking
             ? "Checking Attendance..."
             : loading
-            ? "Processing..."
-            : buttonDisabled
-            ? "Already Marked"
-            : "Mark Present"}
+              ? "Processing..."
+              : buttonDisabled
+                ? "Already Marked"
+                : "Mark Present"}
         </button>
       </div>
     </div>

@@ -20,7 +20,7 @@ const courseSchema = new mongoose.Schema(
     },
 
     syllabus: {
-      type: [String], 
+      type: [String],
       required: true,
     },
 
@@ -28,8 +28,8 @@ const courseSchema = new mongoose.Schema(
       type: [
         {
           title: { type: String, required: true },
-          content: { type: String }, 
-          resources: [String], 
+          content: { type: String },
+          resources: [String],
         },
       ],
       required: true,

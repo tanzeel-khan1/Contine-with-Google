@@ -1,6 +1,5 @@
 import Teacher from "../models/TeacherProfile.js";
 
-
 export const createTeacher = async (req, res) => {
   try {
     const existingTeacher = await Teacher.findOne({ name: req.body.name });
@@ -8,7 +7,7 @@ export const createTeacher = async (req, res) => {
     if (existingTeacher) {
       return res.status(400).json({
         success: false,
-        message: "Is name ka teacher pehle se mojood hai"
+        message: "Is name ka teacher pehle se mojood hai",
       });
     }
 
@@ -19,7 +18,6 @@ export const createTeacher = async (req, res) => {
       message: "Teacher created successfully",
       data: teacher,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,

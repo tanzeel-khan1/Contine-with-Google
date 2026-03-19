@@ -24,13 +24,12 @@ const Logout = () => {
 
   return (
     <>
-     
-<button
-  onClick={() => setShowModal(true)}
-  className="w-full flex cursor-pointer items-center justify-center gap-2 px-4 py-3 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 transition-colors"
->
-  <LogOut size={18} /> Logout
-</button>
+      <button
+        onClick={() => setShowModal(true)}
+        className="w-full flex cursor-pointer items-center justify-center gap-2 px-4 py-3 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 transition-colors"
+      >
+        <LogOut size={18} /> Logout
+      </button>
       {createPortal(
         <AnimatePresence>
           {showModal && (
@@ -79,7 +78,7 @@ const Logout = () => {
             </motion.div>
           )}
         </AnimatePresence>,
-        modalRoot
+        modalRoot,
       )}
     </>
   );

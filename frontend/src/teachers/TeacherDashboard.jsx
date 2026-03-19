@@ -32,7 +32,6 @@ const TeacherDashboard = () => {
             <Logout className="w-full" />
           </div>
 
-          {/* Mobile Hamburger */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -43,7 +42,6 @@ const TeacherDashboard = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden px-4 pb-4 flex flex-col gap-2">
             <button

@@ -192,7 +192,6 @@ export const getPendingLeaves = async (req, res) => {
   res.json({ success: true, leaves });
 };
 
-
 export const leaveDecision = async (req, res) => {
   try {
     const { attendanceId } = req.params;
