@@ -37,7 +37,6 @@ const Contact = () => {
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="w-full max-w-5xl grid md:grid-cols-2 shadow-2xl rounded-3xl overflow-hidden border border-purple-100">
         
-        {/* LEFT SIDE - LOCATION */}
         <div className="bg-purple-600 text-white p-8 flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
           <p className="mb-6 text-purple-100">

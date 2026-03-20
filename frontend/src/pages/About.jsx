@@ -7,6 +7,8 @@ const fadeUp = {
 };
 
 const About = () => {
+
+  
   return (
     <>
       <section className=" min-h-screen py-20 px-4 mr-10">
