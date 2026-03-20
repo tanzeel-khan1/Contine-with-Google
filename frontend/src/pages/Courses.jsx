@@ -36,7 +36,7 @@ const Courses = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen p-8">
       <h2 className="text-4xl font-extrabold text-purple-700 text-center mb-6 tracking-wide">
         All Courses
       </h2>
@@ -66,23 +66,7 @@ const Courses = () => {
                 <p className="text-gray-600 mb-6">{course.description}</p>
               </div>
 
-              <button
-                onClick={() => handleApply(course._id)}
-                disabled={applied || enrollLoading}
-                className={`mt-auto py-3 rounded-xl text-white font-semibold transition  cursor-pointer
-                  ${
-                    applied
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "btn-gradient  hover:scale-105"
-                  }
-                `}
-              >
-                {applied
-                  ? `Already ${applied.status}`
-                  : enrollLoading
-                    ? "Applying..."
-                    : "Apply Now"}
-              </button>
+             
             </div>
           );
         })}

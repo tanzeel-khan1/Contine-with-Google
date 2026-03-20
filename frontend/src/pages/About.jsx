@@ -9,7 +9,6 @@ const fadeUp = {
 const About = () => {
   return (
     <>
-      <Navbar />
       <section className=" min-h-screen py-20 px-4 mr-10">
         <div className="max-w-6xl mx-auto">
           <motion.div

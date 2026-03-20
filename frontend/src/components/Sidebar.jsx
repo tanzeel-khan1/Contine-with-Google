@@ -9,6 +9,7 @@ import {
   CloudRain,
   Book,
   Contact,
+  InfoIcon,
 } from "lucide-react";
 import Logout from "../pages/Logout";
 
@@ -20,19 +21,24 @@ const menuItems = [
   },
 
   {
-    name: "Teacher's",
+    name: "Teachers",
     path: "/dashboard/teachers",
     icon: Users,
   },
   {
-    name: "Coures",
+    name: "Courses",
     path: "/dashboard/courses",
     icon: Book,
   },
   {
-    name: "My Courses",
-    path: "/dashboard/mycourses",
-    icon: Book,
+    name: "Contact Us",
+    path: "/dashboard/contact",
+    icon: Contact,
+  },
+  {
+    name: "About Us",
+    path: "/dashboard/about",
+    icon: InfoIcon,
   },
 ];
 

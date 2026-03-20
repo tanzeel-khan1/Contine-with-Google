@@ -4,18 +4,17 @@ import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import SchoolLevels from "./SchoolLevels";
 import Navbar from "./Navbar";
+import { ArrowRight } from "lucide-react";
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <Navbar />
 
-      <div className="min-h-screen mt-10 px-4 sm:px-6 md:px-10 py-10">
+      <div className="min-h-screen mt-0 px-4 sm:px-6 md:px-10 py-10">
         <div className="max-w-7xl mx-auto space-y-16">
 
-          {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,7 +38,7 @@ const Dashboard = () => {
               onClick={() => navigate("/form")}
               className="btn-gradient cursor-pointer text-white px-8 py-3 rounded-xl font-medium shadow-lg shadow-purple-300 hover:scale-105 hover:shadow-purple-400 transition-all duration-300"
             >
-              Open Admission Form
+              Get Admission Request →
             </button>
           </motion.div>
 

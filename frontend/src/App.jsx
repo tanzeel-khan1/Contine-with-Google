@@ -21,6 +21,7 @@ import GetMyBuyedCourses from "./pages/GetMyBuyedCourses";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Create from "./teachers/Create";
+import Student from "./pages/Student";
 
 const App = () => {
   return (
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
         </Route>
+          <Route path="/student" element={<Student />} />
 
         <Route
           path="/admin"

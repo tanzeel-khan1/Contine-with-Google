@@ -133,6 +133,9 @@ const Loginn = () => {
       } else if (user?.role === "user") {
         navigate("/dashboard", { replace: true });
       }
+      else if (user?.role === "student") {
+        navigate("/student", { replace: true });
+      }
     }
   }, [navigate]);
 
@@ -149,13 +152,24 @@ const Loginn = () => {
 
       toast.success("Login successful ");
 
+      // if (role === "admin") {
+      //   navigate("/admin", { replace: true });
+      // } else if (role === "teacher") {
+      //   navigate("/teacher", { replace: true });
+      // } else {
+      //   navigate("/dashboard", { replace: true });
+      // }
       if (role === "admin") {
-        navigate("/admin", { replace: true });
-      } else if (role === "teacher") {
-        navigate("/teacher", { replace: true });
-      } else {
-        navigate("/dashboard", { replace: true });
-      }
+  navigate("/admin", { replace: true });
+} else if (role === "teacher") {
+  navigate("/teacher", { replace: true });
+} else if (role === "student") {
+  navigate("/student", { replace: true });
+} else {
+  navigate("/dashboard", { replace: true });
+}
+      
+      
     } else {
       toast.error("Login failed ❌");
     }
