@@ -5,7 +5,6 @@ import moment from "moment-timezone";
 export const markAttendance = async (req, res) => {
   try {
     const { userId } = req.body;
-
     const user = await User.findById(userId);
     if (!user) {
       return res
