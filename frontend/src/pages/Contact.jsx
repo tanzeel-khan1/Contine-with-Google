@@ -15,7 +15,6 @@ const Contact = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  
   useEffect(() => {
     getContactsByUserId();
   }, []);
@@ -37,33 +36,26 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="w-full max-w-5xl grid md:grid-cols-2 shadow-2xl rounded-3xl overflow-hidden border border-purple-100">
-        
         <div className="bg-purple-600 text-white p-8 flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
           <p className="mb-6 text-purple-100">
-            Feel free to reach out to us anytime. We're here to help you 
+            Feel free to reach out to us anytime. We're here to help you
           </p>
 
           <div className="space-y-4">
             <div>
               <h4 className="font-semibold">● Location</h4>
-              <p className="text-sm text-purple-100">
-                Karachi, Pakistan
-              </p>
+              <p className="text-sm text-purple-100">Karachi, Pakistan</p>
             </div>
 
             <div>
               <h4 className="font-semibold">● Email</h4>
-              <p className="text-sm text-purple-100">
-                support@example.com
-              </p>
+              <p className="text-sm text-purple-100">support@example.com</p>
             </div>
 
             <div>
               <h4 className="font-semibold">● Phone</h4>
-              <p className="text-sm text-purple-100">
-                +92 300 1234567
-              </p>
+              <p className="text-sm text-purple-100">+92 300 1234567</p>
             </div>
           </div>
         </div>
@@ -78,7 +70,6 @@ const Contact = () => {
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            
             {/* Name */}
             <div>
               <input

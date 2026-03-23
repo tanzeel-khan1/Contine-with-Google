@@ -1,7 +1,6 @@
 const Contact = require("../models/contactModel");
 const nodemailer = require("nodemailer");
 
-
 exports.sendContactMessage = async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -40,7 +39,6 @@ exports.sendContactMessage = async (req, res) => {
       message: "Message sent successfully ✅",
       data: newMessage,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -50,13 +48,10 @@ exports.sendContactMessage = async (req, res) => {
   }
 };
 
-
-
-
 exports.getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find()
-      .populate("userId", "name email") 
+      .populate("userId", "name email")
       .sort({ createdAt: -1 });
 
     res.status(200).json({
@@ -64,7 +59,6 @@ exports.getAllContacts = async (req, res) => {
       total: contacts.length,
       data: contacts,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -74,14 +68,11 @@ exports.getAllContacts = async (req, res) => {
   }
 };
 
-
-
 exports.getContactsByUserId = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    const contacts = await Contact.find({ userId })
-      .sort({ createdAt: -1 });
+    const contacts = await Contact.find({ userId }).sort({ createdAt: -1 });
 
     if (!contacts.length) {
       return res.status(404).json({
@@ -94,7 +85,6 @@ exports.getContactsByUserId = async (req, res) => {
       success: true,
       data: contacts,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -103,8 +93,6 @@ exports.getContactsByUserId = async (req, res) => {
     });
   }
 };
-
-
 
 exports.deleteContact = async (req, res) => {
   try {
@@ -123,7 +111,6 @@ exports.deleteContact = async (req, res) => {
       success: true,
       message: "Contact deleted successfully 🗑️",
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,

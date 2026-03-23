@@ -7,13 +7,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   const storedUser = localStorage.getItem("user");
 
   if (!token || !storedUser) {
-    return (
-      <Navigate
-        to="/login"
-        replace
-        state={{ from: location.pathname }}
-      />
-    );
+    return <Navigate to="/login" replace state={{ from: location.pathname }} />;
   }
 
   const user = JSON.parse(storedUser);
@@ -21,7 +15,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   if (allowedRoles && !allowedRoles.includes(user.role)) {
     if (user.role === "admin") return <Navigate to="/admin" replace />;
     if (user.role === "teacher") return <Navigate to="/teacher" replace />;
-        if (user.role === "user") return <Navigate to="/dashboard" replace />;
+    if (user.role === "user") return <Navigate to="/dashboard" replace />;
 
     return <Navigate to="/form" replace />;
   }
