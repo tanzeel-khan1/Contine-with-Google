@@ -85,7 +85,6 @@ const Contact = () => {
               )}
             </div>
 
-            {/* Email */}
             <div>
               <input
                 type="email"
