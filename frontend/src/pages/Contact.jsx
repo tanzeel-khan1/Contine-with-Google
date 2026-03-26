@@ -60,7 +60,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE - FORM */}
         <div className="bg-white p-8">
           <h2 className="text-3xl font-bold text-center text-purple-600 mb-2">
             Contact Us
