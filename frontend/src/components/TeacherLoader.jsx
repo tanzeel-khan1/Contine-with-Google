@@ -9,6 +9,7 @@ const TeacherLoader = () => {
         className="h-16 w-16 rounded-full border-4 border-purple-200 border-t-purple-600"
       />
 
+
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: [0.4, 1, 0.4] }}
