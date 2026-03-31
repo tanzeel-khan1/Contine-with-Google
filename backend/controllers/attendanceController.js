@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import moment from "moment-timezone";
 
 export const markAttendance = async (req, res) => {
+  
   try {
     
     const { userId } = req.body;
