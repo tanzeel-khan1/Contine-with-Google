@@ -82,6 +82,7 @@ export default function Sidebar() {
         </div>
 
         <nav className="p-4 space-y-2">
+          
           {menuItems.map((item) => {
             const Icon = item.icon;
 

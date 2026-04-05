@@ -13,6 +13,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   const user = JSON.parse(storedUser);
 
   if (allowedRoles && !allowedRoles.includes(user.role)) {
+    
     if (user.role === "admin") return <Navigate to="/admin" replace />;
     if (user.role === "teacher") return <Navigate to="/teacher" replace />;
     if (user.role === "user") return <Navigate to="/dashboard" replace />;
