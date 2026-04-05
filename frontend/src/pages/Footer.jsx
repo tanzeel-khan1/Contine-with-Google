@@ -13,7 +13,6 @@ const Footer = () => {
       return;
     }
 
-    // Simple email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
@@ -21,8 +20,7 @@ const Footer = () => {
       return;
     }
 
-    // Yahan tum API call laga sakte ho
-    toast.success("Subscribed Successfully 🎉");
+    toast.success("Subscribed Successfully ");
 
     setEmail("");
   };

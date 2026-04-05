@@ -65,8 +65,6 @@ const Courses = () => {
                 </h3>
                 <p className="text-gray-600 mb-6">{course.description}</p>
               </div>
-
-             
             </div>
           );
         })}
