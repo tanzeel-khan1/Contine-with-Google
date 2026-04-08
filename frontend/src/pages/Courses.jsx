@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import TeacherLoader from "../components/TeacherLoader";
 
 const Courses = () => {
-  
   const { courses, loading, error, fetchCourses } = useCourse();
   const {
     applyForCourse,
