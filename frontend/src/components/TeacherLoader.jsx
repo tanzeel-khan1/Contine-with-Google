@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 
 const TeacherLoader = () => {
-
   return (
-    
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
       <motion.div
         animate={{ rotate: 360 }}
