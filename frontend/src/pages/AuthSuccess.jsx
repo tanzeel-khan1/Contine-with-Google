@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const AuthSuccess = () => {
+  
   const location = useLocation();
   const navigate = useNavigate();
 
