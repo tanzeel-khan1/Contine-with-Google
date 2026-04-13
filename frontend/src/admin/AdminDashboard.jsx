@@ -2,8 +2,8 @@ import React from "react";
 
 const AdminDashboard = () => {
   return;
-  
-  <div>a dmin dashaord</div>;
+
+  <div className="bg-red-600">a dmieeeeen dashaord</div>;
 };
 
 export default AdminDashboard;

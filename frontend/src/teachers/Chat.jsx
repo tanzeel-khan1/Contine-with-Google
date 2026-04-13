@@ -10,25 +10,72 @@ export default function CandlestickChart() {
     getUserAttendance();
   }, []);
 
+  /* ===============================
+     FILTER CURRENT MONTH FIRST
+  =============================== */
+
+  const currentMonth = new Date().getMonth();
+  const currentYear = new Date().getFullYear();
+
+  const filteredAttendance = attendance.filter((record) => {
+    const d = new Date(record.date);
+    return (
+      d.getMonth() === currentMonth &&
+      d.getFullYear() === currentYear
+    );
+  });
+
+  /* ===============================
+     GENERATE CHART DATA
+  =============================== */
+
+  const generateDummyData = () => {
+    const data = [];
+    let basePrice = 100;
+
+    for (let i = 0; i < 30; i++) {
+      const open = basePrice;
+      const change = (Math.random() - 0.5) * 15;
+      const close = open + change;
+      const high = Math.max(open, close) + Math.random() * 8;
+      const low = Math.min(open, close) - Math.random() * 8;
+
+      data.push({
+        id: i,
+        open,
+        close,
+        high,
+        low,
+        date: new Date(
+          Date.now() - (29 - i) * 86400000
+        ).toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+      });
+
+      basePrice = close;
+    }
+
+    return data;
+  };
+
   const generateDataFromAttendance = () => {
-    if (attendance && attendance.length > 0) {
-      return attendance.map((record, i) => {
+    if (filteredAttendance.length > 0) {
+      return filteredAttendance.map((record, i) => {
         const basePrice = 100 + i * 2;
         const isPresent = record.status === "present";
+
         const open = basePrice;
         const close = isPresent
           ? basePrice + (Math.random() * 10 + 2)
           : basePrice - (Math.random() * 10 + 2);
+
         const high = Math.max(open, close) + Math.random() * 4;
         const low = Math.min(open, close) - Math.random() * 4;
 
         const parsedDate = new Date(record.date);
-        const displayDate = isNaN(parsedDate)
-          ? `Day ${i + 1}`
-          : parsedDate.toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-            });
+        const displayDate = parsedDate.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        });
 
         return {
           id: i,
@@ -42,35 +89,24 @@ export default function CandlestickChart() {
         };
       });
     }
+
     return generateDummyData();
   };
 
-  const generateDummyData = () => {
-    const data = [];
-    let basePrice = 100;
-    for (let i = 0; i < 30; i++) {
-      const open = basePrice;
-      const change = (Math.random() - 0.5) * 15;
-      const close = open + change;
-      const high = Math.max(open, close) + Math.random() * 8;
-      const low = Math.min(open, close) - Math.random() * 8;
-      data.push({
-        id: i,
-        open,
-        close,
-        high,
-        low,
-        date: new Date(Date.now() - (29 - i) * 86400000).toLocaleDateString(
-          "en-US",
-          { month: "short", day: "numeric" },
-        ),
-      });
-      basePrice = close;
-    }
-    return data;
-  };
-
   const data = generateDataFromAttendance();
+
+  /* ===============================
+     STATS (CURRENT MONTH)
+  =============================== */
+
+  const presentCount = filteredAttendance.filter(
+    (r) => r.status === "present"
+  ).length;
+
+  const absentCount = filteredAttendance.filter(
+    (r) => r.status === "absent"
+  ).length;
+
   const maxPrice = Math.max(...data.map((d) => d.high));
   const minPrice = Math.min(...data.map((d) => d.low));
   const range = maxPrice - minPrice || 1;
@@ -79,36 +115,29 @@ export default function CandlestickChart() {
   const normalize = (price) => ((maxPrice - price) / range) * chartHeight;
   const isGain = (candle) => candle.close >= candle.open;
 
-  const presentCount = attendance.filter((r) => r.status === "present").length;
-  const absentCount = attendance.filter((r) => r.status === "absent").length;
+  /* ===============================
+     LOADING / ERROR
+  =============================== */
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-10 h-10 text-emerald-400 animate-spin" />
-          <p className="text-slate-400 text-sm">Fetching attendance data...</p>
-        </div>
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-10 h-10 animate-spin text-emerald-400" />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="bg-red-500/10 border border-red-500/50 rounded-xl p-6 text-center max-w-sm">
-          <p className="text-red-400 font-semibold text-lg mb-2">Error</p>
-          <p className="text-slate-400 text-sm mb-4">{error}</p>
-          <button
-            onClick={getUserAttendance}
-            className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm transition-all"
-          >
-            Retry
-          </button>
-        </div>
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-red-500">{error}</p>
       </div>
     );
   }
+
+  /* ===============================
+     UI
+  =============================== */
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8">
@@ -118,7 +147,8 @@ export default function CandlestickChart() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 mb-2">
-                Attendance Analysis
+                        Current Month Attendance
+
               </h1>
               <p className="text-slate-400 text-sm">
                 {attendance.length > 0
@@ -126,13 +156,8 @@ export default function CandlestickChart() {
                   : "Showing demo data"}
               </p>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-slate-700/40 rounded-lg backdrop-blur-sm border border-slate-600/50">
-              <Calendar className="w-4 h-4 text-slate-400" />
-              <span className="text-slate-300 text-sm">All Records</span>
-            </div>
           </div>
 
-          {/* Stats */}
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-slate-700/40 backdrop-blur-sm border border-slate-600/50 rounded-xl p-4">
               <p className="text-slate-400 text-xs uppercase tracking-wider mb-2">

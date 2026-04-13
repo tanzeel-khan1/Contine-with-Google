@@ -46,7 +46,7 @@ const Logout = () => {
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className="bg-white w-11/12 max-w-sm rounded-2xl p-6 shadow-2xl"
+                className="bg-white w-11/12 max-w-sm rounded-2xl p-6 shadow-2xl mt-50"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
@@ -58,7 +58,7 @@ const Logout = () => {
                 </h3>
 
                 <p className="mt-3 text-sm text-purple-500 text-center">
-                  Kya aap waqai logout karna chahte ho?
+                  Do you really want to log out ?
                 </p>
 
                 <div className="mt-6 flex gap-4">
@@ -84,7 +84,7 @@ const Logout = () => {
             </motion.div>
           )}
         </AnimatePresence>,
-        modalRoot
+        modalRoot,
       )}
     </>
   );

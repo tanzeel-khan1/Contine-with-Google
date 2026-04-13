@@ -30,7 +30,7 @@ const App = () => {
 
       <Routes>
         {/* Default */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
         {/* Public */}
         <Route path="/login" element={<Loginn />} />
@@ -41,9 +41,7 @@ const App = () => {
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
               <AdminLayout />
-            </ProtectedRoute>
           }
         >
           <Route index element={<Dashboard />} />
