@@ -47,11 +47,9 @@ const Logout = () => {
                 exit="exit"
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
               >
-                
                 <h3 className="text-xl font-semibold text-purple-700 text-center">
                   Confirm Logout
                 </h3>
-
 
                 <p className="mt-3 text-sm text-purple-500 text-center">
                   Do you really want to log out ?

@@ -174,7 +174,6 @@ export default function Sidebar() {
     }
   }, []);
 
-  // ✅ Logout function
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
