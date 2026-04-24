@@ -38,12 +38,7 @@ const App = () => {
         <Route path="/success" element={<AuthSuccess />} />
 
         {/* ================= ADMIN ================= */}
-        <Route
-          path="/dashboard"
-          element={
-              <AdminLayout />
-          }
-        >
+        <Route path="/dashboard" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="users" element={<User />} />
           <Route path="teachers" element={<GetAllTeachers />} />
@@ -52,7 +47,7 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
         </Route>
-          <Route path="/student" element={<Student />} />
+        <Route path="/student" element={<Student />} />
 
         <Route
           path="/admin"
