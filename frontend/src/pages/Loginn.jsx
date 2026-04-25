@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import LoginWithGoogle from "./Login";
 
 const Loginn = () => {
-  
   const { login, loading, error } = useAuth();
   const navigate = useNavigate();
 

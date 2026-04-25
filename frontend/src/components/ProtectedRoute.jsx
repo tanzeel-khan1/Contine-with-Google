@@ -6,6 +6,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   const token = localStorage.getItem("token");
   const storedUser = localStorage.getItem("user");
 
+  
   if (!token || !storedUser) {
     return <Navigate to="/dashboard" replace state={{ from: location.pathname }} />;
   }
