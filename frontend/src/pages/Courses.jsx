@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import TeacherLoader from "../components/TeacherLoader";
 
 const Courses = () => {
-  
   const { courses, loading, error, fetchCourses } = useCourse();
   const {
     applyForCourse,
@@ -15,11 +14,13 @@ const Courses = () => {
   } = useEnrollment();
 
   useEffect(() => {
+
     fetchCourses();
     fetchMyEnrollments();
   }, []);
 
   const handleApply = async (courseId) => {
+    
     const res = await applyForCourse(courseId);
 
     if (res?.success) {

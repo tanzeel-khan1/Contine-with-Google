@@ -32,7 +32,6 @@ const App = () => {
         {/* Default */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-        {/* Public */}
         <Route path="/login" element={<Loginn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/success" element={<AuthSuccess />} />
