@@ -1,14 +1,11 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
-
 import Loginn from "./pages/Loginn";
 import Register from "./pages/Register";
 import AuthSuccess from "./pages/AuthSuccess";
-
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLayout from "./layouts/Layout";
-
 import Dashboard from "./pages/Dashboard";
 import User from "./pages/User";
 import Form from "./pages/Form";
