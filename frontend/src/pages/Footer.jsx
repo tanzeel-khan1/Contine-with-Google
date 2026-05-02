@@ -3,6 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { toast } from "sonner";
 
 const Footer = () => {
+  
   const [email, setEmail] = useState("");
 
   const handleSubscribe = (e) => {

@@ -24,6 +24,7 @@ const cardVariants = {
 };
 
 const GetAllTeachers = () => {
+  
   const { loading, error, teachers, getAllTeachers } = useTeacher();
 
   useEffect(() => {

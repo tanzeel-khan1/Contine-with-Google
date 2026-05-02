@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useAdmission from "../Hooks/AdmissionHook";
 
 const containerVariants = {
+
   hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
@@ -21,6 +22,7 @@ const fieldVariants = {
 };
 
 const AdmissionForm = () => {
+  
   const { createAdmission, loading, error } = useAdmission();
   const navigate = useNavigate();
 
