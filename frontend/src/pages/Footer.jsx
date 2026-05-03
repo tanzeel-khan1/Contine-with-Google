@@ -3,7 +3,6 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { toast } from "sonner";
 
 const Footer = () => {
-  
   const [email, setEmail] = useState("");
 
   const handleSubscribe = (e) => {
@@ -31,14 +30,13 @@ const Footer = () => {
       <div className="absolute inset-0 btn-gradient opacity-90"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 py-14 backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-10 text-white">
-
         <div>
           <h2 className="text-2xl font-bold tracking-wide">
             ABC Public School
           </h2>
           <p className="mt-4 text-sm text-white/80 leading-relaxed">
-            Empowering young minds with innovation, discipline and
-            world-class education for a brighter tomorrow.
+            Empowering young minds with innovation, discipline and world-class
+            education for a brighter tomorrow.
           </p>
 
           <div className="flex gap-4 mt-6">
@@ -58,9 +56,15 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm text-white/80">
             <li className="hover:text-white cursor-pointer transition">Home</li>
-            <li className="hover:text-white cursor-pointer transition">About</li>
-            <li className="hover:text-white cursor-pointer transition">Courses</li>
-            <li className="hover:text-white cursor-pointer transition">Admissions</li>
+            <li className="hover:text-white cursor-pointer transition">
+              About
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Courses
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Admissions
+            </li>
           </ul>
         </div>
 
@@ -95,7 +99,6 @@ const Footer = () => {
             </button>
           </form>
         </div>
-
       </div>
 
       <div className="relative text-center text-white/80 text-sm py-6">

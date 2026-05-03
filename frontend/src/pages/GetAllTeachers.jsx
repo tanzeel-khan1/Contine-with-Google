@@ -5,9 +5,7 @@ import TeacherLoader from "../components/TeacherLoader";
 
 const getInitials = (name = "") => {
   const words = name.trim().split(" ");
-  return words.length > 1
-    ? `${words[0][0]}${words[1][0]}`
-    : words[0]?.[0];
+  return words.length > 1 ? `${words[0][0]}${words[1][0]}` : words[0]?.[0];
 };
 
 const cardVariants = {
@@ -24,7 +22,6 @@ const cardVariants = {
 };
 
 const GetAllTeachers = () => {
-  
   const { loading, error, teachers, getAllTeachers } = useTeacher();
 
   useEffect(() => {
@@ -34,7 +31,7 @@ const GetAllTeachers = () => {
   if (loading)
     return (
       <div className="flex justify-center items-center min-h-screen text-purple-600 font-medium">
-        <TeacherLoader/>
+        <TeacherLoader />
       </div>
     );
 
@@ -110,18 +107,14 @@ const GetAllTeachers = () => {
                 </p>
 
                 <p>
-                  <span className="font-medium text-purple-600">
-                    Subjects:
-                  </span>{" "}
+                  <span className="font-medium text-purple-600">Subjects:</span>{" "}
                   {teacher.subjects?.length
                     ? teacher.subjects.join(", ")
                     : "N/A"}
                 </p>
 
                 <p>
-                  <span className="font-medium text-purple-600">
-                    Classes:
-                  </span>{" "}
+                  <span className="font-medium text-purple-600">Classes:</span>{" "}
                   {teacher.classesAssigned?.length
                     ? teacher.classesAssigned.join(", ")
                     : "N/A"}
