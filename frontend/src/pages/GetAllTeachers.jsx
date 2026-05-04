@@ -8,6 +8,7 @@ const getInitials = (name = "") => {
   return words.length > 1 ? `${words[0][0]}${words[1][0]}` : words[0]?.[0];
 };
 
+
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: (index) => ({
