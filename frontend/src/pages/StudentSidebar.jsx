@@ -16,7 +16,7 @@ import Logout from "../pages/Logout";
 
 const menuItems = [
   {
-    name: "exams",
+    name: "Exams",
     path: "/student/exams",
     icon: Home,
   },

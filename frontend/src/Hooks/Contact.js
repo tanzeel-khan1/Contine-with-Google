@@ -8,6 +8,7 @@ const getUser = () => {
   return user ? JSON.parse(user) : null;
 };
 
+
 const getToken = () => {
   const user = getUser();
   return user?.token || null;
